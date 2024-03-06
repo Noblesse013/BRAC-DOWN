@@ -33,15 +33,15 @@ test(arr, queue)
 Queue: [None, None, None, 10]
 Front: 3
 Back: 3
-Queue: [None, None, 20, 10]
+Queue: [20, None, None, 10]
 Front: 3
-Back: 2
-Queue: [None, None, None, 10]
-Front: 0
-Back: 2
-Queue: [40, None, None, 10]
-Front: 0
 Back: 0
-Queue: [40, None, None, None]
+Queue: [20, None, None, None]
+Front: 0
+Back: 1
+Queue: [20, 40, None, None]
+Front: 0
+Back: 2
+Queue: [None, 40, None, None]
 Front: 1
-Back: 0
+Back: 2
