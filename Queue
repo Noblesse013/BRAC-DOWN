@@ -1,0 +1,47 @@
+class Queue:
+    def __init__(self, capacity):
+        self.circArr = [None] * capacity
+        self.front = capacity - 1
+        self.back = capacity - 1
+
+    def enqueue(self, elem):
+        self.back = (self.back + 1) % len(self.circArr)
+        self.circArr[self.back] = elem
+
+    def dequeue(self):
+        self.front = (self.front + 1) % len(self.circArr)
+        dequeued_elem = self.circArr[self.front]
+        self.circArr[self.front] = None
+        return dequeued_elem
+
+def test(arr, queue):
+    for i in range(len(arr)):
+        if arr[i] % 2 == 0:
+            queue.enqueue(arr[i])
+        else:
+            queue.dequeue()
+        print("Queue:", queue.circArr)
+        print("Front:", queue.front)
+        print("Back:", queue.back)
+
+# Driver code
+queue = Queue(4)
+arr = [10, 20, 31, 40, 53]
+test(arr, queue)
+
+
+Queue: [None, None, None, 10]
+Front: 3
+Back: 3
+Queue: [None, None, 20, 10]
+Front: 3
+Back: 2
+Queue: [None, None, None, 10]
+Front: 0
+Back: 2
+Queue: [40, None, None, 10]
+Front: 0
+Back: 0
+Queue: [40, None, None, None]
+Front: 1
+Back: 0
